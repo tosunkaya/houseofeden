@@ -37,6 +37,14 @@
     .header-area .main-header-area.sticky {background: transparent;backdrop-filter:none;box-shadow:none;}
      .sticky .logo-img{width:15%;height:auto;margin:inherit;}
 }
+
+#sticky-header {
+        position: fixed;
+        top: 0;
+        transform: translateY(-100%); /* Initially move out of view */
+        -webkit-transition: transform 500ms ease, background 500ms ease;
+        transition: transform 500ms ease, background 500ms ease;}
+#sticky-header.sticky {transform: translateY(0); /* Move into view */}
     </style>
 </head>
 
@@ -78,7 +86,7 @@
                             <div class="logo-img">
                                 <a href="/">
                                     <!-- <img src="img/logo.png" alt=""> -->
-                                        <img src="/houseofeden-round.svg" class="logo" alt="House of Eden">
+                                        <img src="./houseofeden-round.svg" class="logo" alt="House of Eden">
                                 </a>
                             </div>
                         </div>
