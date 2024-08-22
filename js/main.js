@@ -23,6 +23,11 @@
     $(window).on('scroll', function () {
         var scrollTop = $(this).scrollTop();
 
+	// Do nothing if the scroll position is within the first 500px
+        if (scrollTop < 500) {
+            return;
+        }
+	    
         // Only trigger if the scroll distance exceeds the threshold
         if (Math.abs(lastScrollTop - scrollTop) <= delta) {
             return;
