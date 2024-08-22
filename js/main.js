@@ -1,5 +1,5 @@
-// (function ($) {
-// "use strict";
+(function ($) {
+"use strict";
 // // TOP Menu Sticky
 // $(window).on('scroll', function () {
 // 	var scroll = $(window).scrollTop();
