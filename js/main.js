@@ -1,16 +1,44 @@
+// (function ($) {
+// "use strict";
+// // TOP Menu Sticky
+// $(window).on('scroll', function () {
+// 	var scroll = $(window).scrollTop();
+// 	if (scroll < 400) {
+//     $("#sticky-header").removeClass("sticky");
+//     $('#back-top').fadeIn(500);
+// 	} else {
+//     $("#sticky-header").addClass("sticky");
+//     $('#back-top').fadeIn(500);
+// 	}
+// });
+
+//This code will make your header sticky only when the user scrolls up and hides it when they scroll down.
 (function ($) {
-"use strict";
-// TOP Menu Sticky
-$(window).on('scroll', function () {
-	var scroll = $(window).scrollTop();
-	if (scroll < 400) {
-    $("#sticky-header").removeClass("sticky");
-    $('#back-top').fadeIn(500);
-	} else {
-    $("#sticky-header").addClass("sticky");
-    $('#back-top').fadeIn(500);
-	}
-});
+    "use strict";
+
+    var lastScrollTop = 0;
+    var delta = 5;  // threshold to determine significant scroll
+    var header = $("#sticky-header");
+
+    $(window).on('scroll', function () {
+        var scrollTop = $(this).scrollTop();
+
+        // Only trigger if the scroll distance exceeds the threshold
+        if (Math.abs(lastScrollTop - scrollTop) <= delta) {
+            return;
+        }
+
+        if (scrollTop > lastScrollTop && scrollTop > 400) {
+            // Scrolling down
+            header.removeClass("sticky");
+        } else {
+            // Scrolling up
+            header.addClass("sticky");
+        }
+
+        lastScrollTop = scrollTop;
+    });
+})(jQuery);
 
 
 $(document).ready(function(){
